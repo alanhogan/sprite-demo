@@ -22,9 +22,11 @@ body {
 
 $cat-in-toilet-sprites: sprite-map('cat-in-toilet-sprites',
                               sprite-layout(horizontal, (spacing: 5px, alignment: bottom)),
-                              'images/icons/plain.png',
-                              'images/icons/fish.png',
-                              'images/icons/scuba.png');
+                              'images/icons/*');
+                        // also works like:
+                              // 'images/icons/plain.png',
+                              // 'images/icons/fish.png',
+                              // 'images/icons/scuba.png');
 
 
 %icon-bg {
