@@ -15,26 +15,26 @@ body {
   color: #ab9e89;
 }
 
-// This sass file compiles fine up until this point.
 
-// This next line blows up (but I don't see errors)
 $cat-in-toilet-sprites: sprite-map('cat-in-toilet-sprites',
                               sprite-layout(horizontal, (spacing: 5px, alignment: bottom)),
                               'images/icons/plain.png',
                               'images/icons/fish.png',
-                              'images/icons/scuba.png',);
-// (The same thing happens if we just say "images/icons/*" instead of listing individual images.
+                              'images/icons/scuba.png');
 
-// I am keeping the following code in, but note that the result is the same (no sprite-demo.css is built)
-// regardless of whether the following is commented out, or not.
 
 %icon-bg {
   // calling sprite-background generates the sprite map image
   @include sprite-background($cat-in-toilet-sprites);
 }
 
+.cat-in-toilet-icon {
+  display: inline-block;
+}
+
+
 @each $icon in sprite-list($cat-in-toilet-sprites) {
-  .icon-#{sprite-identifier($cat-in-toilet-sprites, $icon)} {
+  .cat-in-toilet-icon-#{sprite-identifier($cat-in-toilet-sprites, $icon)} {
     @extend %icon-bg;
     @include sprite-position($cat-in-toilet-sprites, $icon);
     // If all of your sprites are the same size, include sprite-dimensions() in %icon-bg
